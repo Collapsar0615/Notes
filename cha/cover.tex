@@ -1,0 +1,62 @@
+\thispagestyle{empty}
+\begin{tikzpicture}[remember picture,overlay,font=\sffamily\bfseries]
+  \fill[opacity=0.2,c6!50](current page.south east)rectangle (current page.north west);%遮住页码
+%===================网格线==============================
+\draw[help lines,step=0.8cm,opacity=0.4,color=c1](current page.south east)grid(current page.north west);
+%=================右上方弧线图像========================
+   \draw[ultra thick,c4,name path=big arc] ([xshift=-2mm]current page.north) arc(150:285:11)
+ coordinate[pos=0.225] (x0);
+ \begin{scope}
+  \clip ([xshift=-2mm]current page.north) arc(150:285:11) --(current page.north east);
+  \fill[c4!50,opacity=0.25] ([xshift=4.55cm]x0) circle (4.55);
+  \fill[c4!50,opacity=0.25] ([xshift=3.4cm]x0) circle (3.4);
+  \fill[c4!50,opacity=0.25] ([xshift=2.25cm]x0) circle (2.25);
+  \draw[ultra thick,c4!50] (x0) arc(-90:30:6.5);
+  \draw[ultra thick,c4] (x0) arc(90:-30:8.75);
+  \draw[ultra thick,c4!50,name path=arc1] (x0) arc(90:-90:4.675);
+  \draw[ultra thick,c4!50] (x0) arc(90:-90:2.875);
+  \path[name intersections={of=big arc and arc1,by=x1}];
+  \draw[ultra thick,c4,name path=arc2] (x1) arc(135:-20:4.75);
+  \draw[ultra thick,c4!50] (x1) arc(135:-20:8.75);
+  \path[name intersections={of=big arc and arc2,by={aux,x2}}];
+  \draw[ultra thick,c4!50] (x2) arc(180:50:2.25);
+ \end{scope}
+ %================日期==================================
+ \path[decoration={text along path,text color=c4,
+                 raise = -2.8ex,
+                 text = {|\sffamily\bfseries|10/05/2021},
+                 text align = center
+             },
+             decorate
+         ] ([xshift=-2mm]current page.north) arc(150:245:11);
+
+%===================坐标轴==============================
+\node[opacity=0.5,color=c1] at([xshift=4cm,yshift=-4cm]current page.north
+  west){\tikz{\draw[-stealth](-0.3,0)--(0,0)node[below left]{$O$}--(3.6,0)node[below=2pt]{$x$};
+\draw[-stealth,color=c1](0,-0.42)--(0,2)node[left]{$y$};
+\draw(0,1.3)node[left]{$A$}..controls(1.4,0.6)and(2.2,2.4)..(2.8,1.7)node[right]{$B$}
+--(2.8,0)node[below]{$C$};\node at(0.65,1.4){$f(x)$};}};
+%=================标题信息=========================
+\node[text=c1,anchor=west,scale=5,inner sep=0pt,font=\zhongsong] at
+ ([xshift=-10cm,yshift=0cm]current page.center) {经典电动力学};
+\node[text=c1,anchor=west,scale=2.5,inner sep=0pt,font=\zhongsong] at
+ ([xshift=-0.5cm,yshift=-1.65cm]current page.center) {};
+\node[text=c1,anchor=west,scale=3,inner sep=0pt,font=\zhongsong] at
+ ([xshift=-8.25cm,yshift=-3.45cm]current page.center) {\fontencoding{T1}\fontfamily{ptm}\bfseries\selectfont };
+%\node[text=c1,anchor=west,scale=1.5,inner sep=0pt,font=\zhongsong] at
+ %([xshift=-4.8cm,yshift=-3.65cm]current page.center) {\fontencoding{T1}\fontfamily{ptm}\bfseries\selectfont (First Edition)};
+\node [text=c1,scale=3,font=\heiti] at (3cm,-13cm){\fontencoding{T1}\fontfamily{ptm}\bfseries\selectfont Lection Notes};
+%\node [text=c1,scale=1.5,font=\heiti] at (3,-12.98){\fontencoding{T1}\fontfamily{ptm}\bfseries\selectfont (第二版)};
+
+\draw[ultra thick,c1!50]([xshift=1.5cm,yshift=-5cm]current page.west)--([xshift=-5cm,yshift=-5cm]current page.east);
+
+\node[text=c1,anchor=west,scale=2.5,inner sep=0pt,font=\heiti] at
+ ([xshift=-8cm,yshift=-6cm]current page.center) {Collapsar };
+ 
+ \node[opacity=0.5,scale=1.8,color=c1!80] at ([xshift=4.80cm,yshift=-7cm]current page.center) {$i\hbar \dfrac{\partial }{\partial t} \psi(\mathbf{r},t)=\left (-\dfrac{\hbar^2}{2m}\nabla^2+V(\mathbf{r})\right )\psi(\mathbf{r},t)$};
+\node[opacity=0.5,scale=1.8,color=c1!80] at ([xshift=0cm,yshift=-8.5cm]current page.center) {$[x_\alpha,p_\beta]=i\hbar \delta_{\alpha \beta}$};
+\node[opacity=0.5,scale=1.8,color=c1!80] at ([xshift=2cm,yshift=-10cm]current page.center) {$\left [i\hbar \dfrac{\partial}{\partial t}-c\mathbf{\alpha}\cdot(-i\hbar \nabla)-\beta mc^2 \right ] \psi(x,y,z,t)=0$};
+
+%==============出版社信息=============================
+\node[text=c1,scale=1.8,font=\xinwei] at ([yshift=3cm]current page.south){\href{https://mywbb.mysxl.cn/}{冰冰出版社}};
+\end{tikzpicture}

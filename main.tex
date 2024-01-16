@@ -1,0 +1,68 @@
+\documentclass[openany,11pt]{book}
+\usepackage[UTF8]{ctex}
+\usepackage[top=1in, bottom=1in,left=0.9in, right=0.9in]{geometry}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usetikzlibrary{intersections,decorations.text,shadings,3d,positioning,patterns}
+\definecolor{c1}{RGB}{62,97,127}
+\definecolor{c2}{RGB}{104,182,182}
+\definecolor{c3}{RGB}{107,190,190}
+\definecolor{c4}{RGB}{100,172,174}
+\definecolor{c5}{RGB}{95,162,162}
+\definecolor{c6}{RGB}{235,242,252}
+\newcommand{\zhongsong}{\CJKfontspec{STZhongsong}}%华文中宋
+\newcommand{\xinwei}{\CJKfontspec{STXinwei}}%华文新魏
+\newcommand{\jc}{\boldsymbol}
+\usepackage{lmodern}
+\usepackage{graphicx}
+\usepackage{tensor}
+\usepackage{amsthm}
+\usepackage{backref}[hyperref]
+\usepackage{hyperref}
+\newtheorem*{remark}{注}
+\newtheorem*{td}{\xinwei 推导}
+\newtheorem{definition}{\xinwei 定义}[section]
+\newtheorem{theorem}{\xinwei 定理}[chapter]
+\newtheorem{proposition}{\xinwei 性质}[section]
+\newtheorem{lemma}{引理}
+\newtheorem{corollary}{推论}[section]
+
+\renewcommand{\bibname}{参考文献}
+\usepackage{mathtools}
+\setmainfont{CMK.ttf}
+\setCJKmainfont{CMK.ttf}
+\begin{document}
+%\maketitle
+\frontmatter
+\input{cha/cover}
+\tableofcontents
+
+\mainmatter
+
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+\begin{center}
+	\Huge\textbf{序}
+	\\
+   \LARGE\textbf{第一版}
+\end{center}~\
+
+
+
+~\\
+\begin{flushright}
+	\begin{tabular}{c}
+		Collapsar\\
+		2022年8月15日
+	\end{tabular}
+\end{flushright}
+
+
+
+
+
+\input{cha/1}
+\bibliographystyle{IEEEtran}
+\bibliography{reference}
+\end{document}
