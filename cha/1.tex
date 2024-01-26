@@ -1,0 +1,173 @@
+\chapter{群的基本知识}
+\section{群}
+\begin{definition}[群]
+设G是一些元素的集合,$G=\{\cdots,g,\cdots\}=\{g\}$.在G中定义了乘法运算,若G对这种运算满足下面四个条件:
+\begin{enumerate}
+    \item 封闭性.$\forall f,g \in G$,若$fg=h$,则$h \in G$.
+    \item 结合律.$\forall f,g,h \in G,(fg)h=f(gh)$.
+    \item 存在唯一的单位元.有$e \in G,\forall f \in G,ef=fe=f$.
+    \item 存在逆元素.$\forall f\in G ,$有唯一的$f^{-1} \in G$使得$f^{-1}f=ff^{-1}=e$.
+\end{enumerate}
+则称G为一个群.e称为群G的单位元素,$f^{-1}$称为$f$的逆元素.
+\end{definition}
+群的元素不仅可以是数,也可以是空间反演、空间转动、空间平移和置换等操作.
+
+群$G$的元素有限时,称$G$为有限群.有限群$G$的元素个数$n$为群的阶,记作$n(G)$.
+
+群的乘法,可以是数乘和数的加法,也可以是空间反演、转动等连续两次操作和连续两次置换等.有限群的乘法规则可以列为乘法表.
+
+群的乘法一般不具备可交换性,即$\forall f,g \in G,fg\neq gf$.若$\forall f,g \in G,fg=gf$,称$G$为可交换群或者Abel群.
+
+群$G$的任意一个元素,总可以用在一定范围内变化的一个数$\alpha$标记为$g_\alpha$,给出此范围内一个数$\alpha$,对应群$G$的一个元素.
+\begin{theorem}[重排定理]
+设$G=\{g_\alpha\},u\in G$,当$\alpha$取遍所有可能值时,乘积$ug_\alpha$给出并且仅仅一次给出$G$的所有元素.
+\end{theorem}
+\begin{proof}
+  设$g_\beta \in G$, 因为 $ u^{-1} \in G$,所以$ g_\alpha=u^{-1}g_\beta\in G$, 所以$ug_\alpha =g_\beta$给出$G$的所有元素.
+
+  设$\alpha=\alpha'$时有$ug_\alpha=ug_{\alpha'}$,两边左乘$u^{-1}$得到$g_\alpha=g_{\alpha'}$与$\alpha$可以唯一标记$G$
+中的元素矛盾.所以当$\alpha$改变时,$ug_\alpha$仅仅一次给出$G$中的所有元素.
+\end{proof}
+\begin{corollary}
+    $g_\alpha u$在$\alpha$取遍所有可能值时,也给出且仅仅一次给出群$G$中的所有元素.
+\end{corollary}
+重排定理指出,每一个群元素在乘法表的每一行或者每一列中被列入一次而且仅仅一次.乘法表的每一行或者每一列都是群元素的重新排列,不可能有两行或者两列的元素是相同的.
+\section{子群和陪集}
+\begin{definition}[子群]
+    设$H$是群$G$的一个子集,若对于与群$G$同样的乘法运算,$H$也构成一个群,称$H$是$G$的子群,记作$H\subset G$.
+\end{definition}
+\begin{corollary}
+    群$G$的非空子集$H$是$G$的子群的充要条件是:
+    \begin{enumerate}
+        \item 封闭性:若$h_\alpha,h_\beta \in H$,则$h_\alpha h_\beta \in H$.
+        \item 存在逆元:若$h_\alpha \in H $,则$h_\alpha^{-1}\in H$.
+    \end{enumerate}
+\end{corollary}
+\begin{remark}
+    由于$H$是$G$的非空子集,则结合律天然满足.在保证封闭性和逆元的存在性后,有$h_\alpha h_\alpha^{-1}=e \in H$.于是$H$满足群定义中的四个要求.
+\end{remark}
+对于群$G$,它的单位元素$e$与$G$自身为$G$的子群,称为显然子群或者平庸子群.群$G$的非显然子群称为固有子群.若不作特别说明,子群一般特指固有子群.
+\begin{definition}[循环群]
+    $n$阶循环群是由元素$a$的幂$a^k$组成,$k=1,2,\cdots,n$,且$a^n=e$,记为:$Z_n=\{a,a^2,\cdots,a^n=e\}$.
+\end{definition}
+循环群的乘法可交换,故循环群为Abel群.
+
+从$n$阶有限群$G$的任一个元素$a$出发,总可以构成群$G$的一个循环子群$Z_k=\{a,a^2,\cdots,a^k=e\}$.称$a$的阶为$k$,$Z_k$是由$a$生成的$k$阶循环群.
+\begin{proof}
+当$a=e$时,$\{e\}$为群$G$的一阶循环子群,这是显然子群.$a\neq e$时$a^2\neq a$.若$a^2=e$,则由$a$生成2阶循环子群.如$a\neq e,a^2 \neq e,\cdots,a^{k-1}=e$,根据重排定理,$a,a^2,\cdots,a^{k-1},a^k$为$G$中不同元素. 通过增加$k$,利用重排定理,总可以在$k\leqslant n$中达到$a^k=e$.因此,从$n$阶有限群的任意一个元素出发,总可以生成一个$G$的循环子群.
+\end{proof}
+\begin{definition}[陪集(旁集)]
+    设$H=\{h_\alpha\}$是群$G$的子群.由固定的$g \in G,g\neq H$,可以生成子群$H$的左陪集$gH=\{gh_\alpha|h_\alpha \in H\}$和$H$的右陪集$Hg=\{h_\alpha g|h_\alpha\in H\}$.
+\end{definition}
+当$H$为有限子群时,陪集元素的个数等于$H$的阶.
+\begin{theorem}[陪集定理]
+    设群$H$是群$G$的子群,则$H$的两个左(右)陪集或者有完全相同的元素,或者没有任何公共元素.
+\end{theorem}
+\begin{proof}
+设$u,v\in G,u,v\notin H$,考虑由$u,v$生成的$H$的两个左陪集:$uH=\{uh_\alpha|h_\alpha \in H\},vH=\{vh_\alpha |h_\alpha \in H\}$.设它们有一个公共元素
+$uh_\alpha=vh_\beta$,则$v^{-1}u=h_\beta h_\alpha^{-1}\in H$.根据重排定理,在$\gamma$取遍所有可能值时,$v^{-1}uh_\gamma$给出且仅仅一次给出群$H$的所有元素,所以左陪集$v(v^{-1}uh_\gamma)=uh_\gamma$与左陪集$vh_\gamma$重合.因此当左陪集$uH$和$vH$有一个公共元素时,$uH$就和$vH$完全重合.
+
+右陪集的情况同理可证.
+\end{proof}
+\begin{theorem}[Lagrange定理]
+    有限群的子群的阶等于该有限群阶的因子.
+\end{theorem}
+\begin{proof}
+设$G$是$n$阶有限群,$H$是$G$的$m$阶子群.取$u_1 \in G,u_1\notin H$,作左陪集$u_1H$.若包括子群$H$的左陪集串$H,u_1H$不能穷尽整个群$G$,则取$u_2 \in G,u_2 \notin H,u_2\notin u_1H$,作左陪集$u_2H$.根据陪集定理,$u_2H$与$H$以及$u_1H$完全不重合.继续这种做法,由于$G$为有限群,所以总存在$u_{j-1}$使得包括子群$H$在内的左陪集串
+$$H,u_1H,u_2H,\cdots,u_{j-1}H$$
+穷尽了整个群$G$.群$G$的任一元素被包含在此左陪集串中,而左陪集串中又没有相互重合的元素,所以群$G$的元素被分成了$j$个左陪集,每个左陪集中有$m$个元素.于是
+$$\text{群}G\text{的阶}n=\text{子群}H\text{的阶} m \times j$$
+\end{proof}
+\begin{corollary}
+    阶为素数的群没有非平庸子群.
+\end{corollary}
+\section{类与不变子群}
+\begin{definition}[共轭]
+    设元素$f,h\in G$,若存在元素$g \in G$,使得$gfg^{-1}=h$,称$h$与$f$共轭,记为$h\sim f$.
+\end{definition}
+\begin{corollary}
+共轭的两个元素具有如下两个性质:
+\begin{enumerate}
+    \item 对称性,即当$h \sim f$,则$f \sim h$.且$f \sim f$.
+    \item 传递性,即当$f_1\sim h,f_2\sim h$,则$f_1\sim f_2$.
+\end{enumerate}
+\end{corollary}
+\begin{proof}
+    因为$h\sim f$,所以存在元素$g \in G$,使得$gfg^{-1}=h$,所以$f=g^{-1}h(g^{-1})^{-1}=g^{-1}hg$,即$f \sim h$.
+
+    因为$f_1=g_1hg_1^{-1},f_2=g_2hg_2^{-1}$,所以
+$
+f_1=g_1g_2^{-1}f_2g_2g_1^{-1}=(g_1g_2^{-1})f_2(g_1g_2^{-1})^{-1}
+$.
+\end{proof}
+\begin{definition}[类]
+    群$G$的所有相互共轭的元素的集合组成$G$的一个类.
+\end{definition}
+共轭关系的对称性和传递性使得类被其中任意一个元素所决定.给出类中任意一个元素$f$,可以求出$f$类的所有元素:$f$类$=\{f'|f'=g_\alpha fg_\alpha^{-1},g_\alpha\in G\}$.
+
+一个群的单位元素$e$自成一类.Abel群的每个元素自成一类.
+
+设元素$f$的阶为$m$,即$f^m=e$,则$f$类所有元素的阶都是$m$.这是因为$\forall g_\alpha \in G$,恒有
+    $(g_\alpha fg_\alpha^{-1})^m=g_\alpha f^m g_\alpha^{-1}=e$. 
+    \begin{remark}\ \\
+ \begin{enumerate}
+    \item  当$g_\alpha$取遍群$G$的所有元素时,$g_\alpha fg_\alpha^{-1}$可能会不止一次地给出$f$类中的元素.如$f=e,g_\alpha fg^{-1}_\alpha$总是给出单位元素$e$.
+\item 两个不同类之间没有公共元素.因此可以按照共轭类对群进行分割,此时每个类中元素个数不一定相同,而按照子群的陪集对群进行分割,每个陪集元素都是相同的.
+ \end{enumerate}
+    \end{remark}
+\begin{theorem}
+    有限群每类元素的个数等于群阶的因子.
+\end{theorem}
+\begin{proof}
+    设$G$是$n$阶有限群.$\forall g \in G$,作$G$的子群$H^g=\{h\in G|hgh^{-1}=g\}$.$H^g$是由$G$中所有与$g$对易的元素$h$组成的.
+    设$g_1,g_2\in G,g_1,g_2\notin H^g$.若有$g_1gg_1^{-1}=g_2gg_2^{-1}$,则有
+    $$(g_1^{-1}g_2)g(g_1^{-1}g_2)^{-1}=(g_1^{-1}g_2)g(g_2^{-1}g_1)=g_1^{-1}(g_2gg_2^{-1})g_1=g_1^{-1}(g_1gg_1^{-1})g_1=g\Rightarrow g_1^{-1}g_2 \in H^g$$
+    即$g_2 \in g_1 H^g$,又\red{按照定义有,$g_1\in g_1 H^g$},所以$g_1,g_2$属于$H^g$的同一个左陪集$g_1H^g$.
+
+ 反之,若$g_1,g_2$属于$H^g$的同一个左陪集$g_1H^g$,必有$g_2=g_1h,h\in H^g$.于是
+ $$ g_2gg_2^{-1}=g_1hgh^{-1}g_1^{-1}=g_1gg_1^{-1}$$
+因此$g$类中元素的个数等于群$G$按照$H^g$分割陪集的个数,亦即群$G$的阶的因子.
+$$g\text{类元素的个数}=\dfrac{G\text{的阶}}{H^g\text{的阶}}$$
+\end{proof}
+\begin{definition}[共轭子群]
+设$H$和$K$是群$G$的两个子群,若有$g\in G$使得
+$$K=gHg^{-1}=\{k=ghg^{-1}|h \in H\}$$
+则称$H$是$K$的共轭子群.
+\end{definition}
+共轭子群也有对称性和传递性.G的全部子群可以分割为共轭子群类.
+\begin{definition}[不变子群]
+    设$H$是$G$的子群,若对任意$g\in G, h_\alpha \in H$,有$gh_\alpha g^{-1}\in H$.即如果$H$包含$h_\alpha$,则它将包含所有与$h_\alpha$同类的元素,称$H$是$G$的不变子群.
+\end{definition}
+\begin{theorem}
+    设$H$是$G$的不变子群,对任一固定元素$f\in G$,在$h_\alpha$取遍$H$的所有群元时,乘积$fh_\alpha f^{-1}$一次且仅仅一次给出$H$的所有元素.
+\end{theorem}
+\begin{proof}
+    首先证明$H$的任意元素$h_\beta$具有$fh_\alpha f^{-1}$的形式.因为$H$是不变子群,所以$f^{-1}h_\beta f \in H$,令$f^{-1}h_\beta f =h_\alpha$,则$h_\beta =fh_\alpha f^{-1}$.
+
+    当$h_\alpha \neq h_\gamma$时,$fh_\alpha f^{-1} \neq fh_\gamma f^{-1}$,否则必定引起矛盾.因此当$h_\alpha$取遍所有可能的$H$的元素时,$fh_\alpha f^{-1}$一次且仅仅一次给出$H$的所有元素.
+\end{proof}
+
+ Abel群的所有子群都是不变子群.
+ 
+ 不变子群的左陪集和右陪集是重合的,故不必区分,只说不变子群的陪集即可.
+\begin{proof}
+    对$G$的不变子群$H$,由$g \in G,g \notin H$生成的$H$的左陪集和右陪集分别是:$gH=\{gh_\alpha|h_\alpha \in H \},Hg=\{h_\alpha g|h_\alpha \in H\}$.而由$H$是$G$的不变子群知$g^{-1}h_\alpha g\in H$.由于$g(g^{-1}h_\alpha g)=h_\alpha g \in Hg$,所以左陪集的元素$g(g^{-1}h_\alpha g)$也是右陪集的元素.故$H$的左右陪集重合.
+\end{proof}
+\begin{definition}[商群]
+设群$G$的不变子群$H$生成的陪集串为$H,g_1H,g_2H,\cdots,g_iH,\cdots,$把其中每一个陪集看成一个新的元素,并由两个陪集中的元素相乘得到另一个陪集中的元素,定义新的元素之间的乘法规则.即
+$$
+\begin{aligned}
+    &\text{陪集串}\quad  &\quad\quad&\text{新元素}\\
+    &H    &   &f_0\\
+    &g_1H &   &f_1\\
+    &g_2H  &  &f_2\\
+    &g_3H  &  &f_3\\
+   &\cdots \cdots \cdots \cdots\\
+    &g_iH  &     &f_i\\
+  &  \cdots \cdots \cdots \cdots
+\end{aligned}
+$$
+乘法规则:$$g_ih_\alpha g_j h_\beta=g_kh_\delta \longrightarrow f_if_j=f_k$$
+这样得到的群$\{f_0,f_1,f_2,\dots,f_i,\cdots\}$称为不变子群$H$的商群,记为$G/H$.
+\end{definition}
+\section{群的同态与同构}

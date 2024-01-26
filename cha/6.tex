@@ -1,0 +1,41 @@
+\chapter{自旋}
+\section{考试要求}
+\begin{enumerate}
+    \item 了解斯特恩一盖拉赫实验。电子自旋回转磁比率与轨道回转磁比率。
+    \item 熟练掌握自旋算符的对易关系和自旋算符的矩阵形式 (泡利矩阵)、与自旋相联系的 测量值、概率和平均值等的计算以及其本征值方程和本征矢的求解方法。
+    \item 了解电磁场中的薛定谔方程和简单塞曼效应的物理机制。
+    \item 了解自旋-轨道藕合的概念、总角动量本征态的求解及碱金属原子光谱的精细和超精 细结构。
+    \item 熟练掌握自旋单态与三重态求解方法及物理意义, 了解自旋纠缠态概念。
+\end{enumerate}
+\section{基础知识梳理}
+\subsection{斯特恩——盖拉赫实验}
+\subsection{电子的自旋}
+\paragraph*{自旋波函数与自旋态}
+电子的自旋波函数是旋量波函数:$$\psi(\mathbf{r},s_z)=
+\begin{pmatrix}
+    \psi\left(\mathbf{r},\dfrac{\hbar}{2}\right)  \\
+    \psi\left(\mathbf{r},\dfrac{-\hbar}{2}\right) 
+\end{pmatrix}=\phi(\mathbf{r})\chi(s_z)
+    $$
+    $s_z=\pm \dfrac{\hbar}{2}$的本征态为$\alpha=\chi_{1/2}(s_z)=\begin{pmatrix}
+        1\\
+        0
+    \end{pmatrix}=\ket{\uparrow}$和$\beta=\chi_{-1/2}(s_z)=\begin{pmatrix}
+        0\\
+        1
+    \end{pmatrix}=\ket{\downarrow}$
+
+    一般的电子自旋态可以表示为两者的线性叠加:
+    $$\chi(s_z)=\begin{pmatrix}
+        a\\
+        b
+    \end{pmatrix}=a\alpha+b\beta=a\ket{\uparrow}+b\ket{\downarrow}$$
+    \paragraph*{自旋算符与泡利算符}
+    自旋算符$\hat{\mathbf{S}}$的定义式为:
+    \begin{align}
+        \hat{\mathbf{S}}\times\hat{\mathbf{S}}=i\hbar\hat{\mathbf{S}}
+    \end{align}
+    引入泡利算符$\hat{\sigma}$,与自旋算符满足如下关系:
+    \begin{align}
+        \hat{\mathbf{S}}=\dfrac{\hbar}{2} \hat{\sigma}
+    \end{align}
